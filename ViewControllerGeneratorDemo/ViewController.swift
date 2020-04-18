@@ -12,9 +12,32 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let vcWithXib = ViewControllerCreator.generate(ViewControllerName.withXib.rawValue)
+        print(vcWithXib!) // OK
+        
+        let vcNoXib = ViewControllerCreator.generate(ViewControllerName.noXib.rawValue)
+        print(vcNoXib!) // OK
+        
+        let vcNotExist = ViewControllerCreator.generate(ViewControllerName.notExist.rawValue)
+        print(vcNotExist) // nil
+        
+        let vcAnotherNoXib = ViewControllerCreator.generate(ViewControllerName.anoter.rawValue)
+        print(vcAnotherNoXib!) // OK
+        
+        print("=============================")
+        
+        let vcWithXib_byConverter = ViewControllerCreator.generateByConverter(ViewControllerName.withXib.rawValue)
+        print(vcWithXib_byConverter!) // OK
+        
+        let vcNoXib_byConverter = ViewControllerCreator.generateByConverter(ViewControllerName.noXib.rawValue)
+        print(vcNoXib_byConverter!) // OK
+        
+        let vcNotExist_byConverter = ViewControllerCreator.generateByConverter(ViewControllerName.notExist.rawValue)
+        print(vcNotExist_byConverter) // nil
+        
+        let vcAnotherNoXib_byConverter = ViewControllerCreator.generateByConverter(ViewControllerName.anoter.rawValue)
+        print(vcAnotherNoXib_byConverter!) // OK
     }
-
-
 }
 
